@@ -1,5 +1,5 @@
 <p align="center">
-  <strong>RIABreast backend</strong><br>
+  <strong>RIABreast frontend</strong><br>
   <em>Web & PWA per la riabilitazione post-mastectomia</em>
 </p>
 
