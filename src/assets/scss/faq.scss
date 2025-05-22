@@ -1,0 +1,58 @@
+@use "index" as *;
+@use 'sass:color';
+
+.faq-container {
+
+  .content {
+
+    width: 100%;
+    background: white;
+    border-radius: 18px 18px 0 0;
+    padding: 0 0 80px 0;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+    @include viewport-height(70);
+
+    &::-webkit-scrollbar {
+      display: none;  /* Safari and Chrome */
+    }
+
+    .faq-list {
+      padding: 16px 10px 16px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .faq-item {
+        background: $color-4;
+        border-radius: 12px;
+        padding: 14px;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        text-align: left;
+
+        &:hover {
+          background: color.adjust($color-4, $lightness: 5%);
+        }
+
+        .faq-question {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 16px;
+          font-weight: bold;
+          color: $primary-color;
+        }
+
+        .faq-answer {
+          font-size: 14px;
+          color: #555;
+          margin-top: 8px;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+}

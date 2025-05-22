@@ -1,0 +1,99 @@
+@mixin responsive-font($base-font-size) {
+  & {
+    font-size: $base-font-size !important;
+  }
+
+  @media (max-height: 600px) {
+    & {
+      font-size: $base-font-size*0.6 !important;
+    }
+  }
+
+  @media (max-height: 650px) {
+    & {
+      font-size: $base-font-size*0.7 !important;
+    }
+  }
+
+  @media (max-height: 700px) {
+    & {
+      font-size: $base-font-size*0.8 !important;
+    }
+  }
+
+  @media (max-height: 750px) {
+    & {
+      font-size: $base-font-size*0.9 !important;
+    }
+  }
+}
+
+@mixin responsive-width($px) {
+  & {
+    width: $px;
+  }
+
+  @media (max-height: 600px) {
+    & {
+      width: $px*0.6;
+    }
+  }
+
+  @media (max-height: 650px) {
+    & {
+      width: $px*0.7;
+    }
+  }
+
+  @media (max-height: 700px) {
+    & {
+      width: $px*0.8;
+    }
+  }
+
+  @media (max-height: 750px) {
+    & {
+      width: $px*0.9;
+    }
+  }
+}
+
+@mixin responsive-height($px) {
+  & {
+    height: $px;
+  }
+
+  @media (max-height: 600px) {
+    & {
+      height: $px*0.6;
+    }
+  }
+
+  @media (max-height: 650px) {
+    & {
+      height: $px*0.7;
+    }
+  }
+
+  @media (max-height: 700px) {
+    & {
+      height: $px*0.8;
+    }
+  }
+
+  @media (max-height: 750px) {
+    & {
+      height: $px*0.9;
+    }
+  }
+}
+
+@mixin viewport-height($value) {
+  height: #{$value}vh; // fallback universale
+  height: #{$value}svh; // viewport height "minima" → utile su mobile
+}
+
+@mixin viewport-min-height($value) {
+  min-height: #{$value}vh; // fallback universale
+  min-height: #{$value}svh; // viewport height "minima" → utile su mobile
+}

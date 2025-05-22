@@ -1,0 +1,198 @@
+@use "index" as *;
+@use 'sass:color';
+
+.video-detail-container {
+  justify-content: space-between!important;
+
+  .video-wrapper {
+    width: calc(100% - 32px);
+    padding: 0 16px;
+    margin-top: 24px;
+
+    .video-player {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; // 16:9 aspect ratio
+      border-radius: 10px;
+      overflow: hidden;
+      background: black;
+      outline: 2px solid $color-4;
+      outline-offset: 8px;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      &.playing::before {
+        display: none;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        .play-icon {
+          color: $color-4;
+
+          @include responsive-font(64px);
+        }
+      }
+
+    }
+  }
+
+  .video-info {
+    margin-top: 21px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .video-title {
+    font-weight: bold;
+    color: $color-4;
+    margin-bottom: 15px!important;
+
+    @include responsive-font(24px);
+  }
+
+  .video-description {
+    color: $color-4;
+    text-align: center;
+
+    @include responsive-font(15px);
+
+  }
+
+  .content {
+    background: white;
+    border-radius: 18px 18px 0 0;
+    padding: 15px;
+
+    .progress-section {
+      width: 100%;
+
+      h4 {
+        color: black;
+        text-align: center;
+        padding-bottom: 15px;
+
+        @include responsive-font(24px);
+      }
+
+      .progress-btn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background: $primary-color;
+        color: $color-4;
+        border: none;
+        padding: 14px 20px;
+        border-radius: 9px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 350px;
+        transition: 0.3s ease-in-out;
+
+        @include responsive-font(15px);
+
+
+        i {
+          margin-right: 12px;
+
+          @include responsive-font(24px);
+
+        }
+
+        &:hover {
+          background: color.adjust($color-4, $lightness: 5%);
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+}
+
+.session-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include viewport-height(100);
+
+  .popup-content {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    width: 80%;
+    max-width: 360px;
+    text-align: center;
+    color: $text-color-dark;
+
+    h3 {
+      margin-bottom: 16px!important;
+      color: $primary-color;
+
+      @include responsive-font(27px);
+    }
+
+    button {
+      background: $primary-color;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      margin-top: 15px!important;
+    }
+  }
+}
+
+
+

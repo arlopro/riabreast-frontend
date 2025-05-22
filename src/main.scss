@@ -1,0 +1,104 @@
+@use "./assets/scss/variables" as *;
+@use "./assets/scss/global" as *;
+@use "./assets/scss/mixins" as mix;
+@use 'sass:color';
+
+
+body {
+  margin: 0;
+  padding: 0;
+  @include mix.viewport-height(100);
+  overflow: hidden;
+
+  #app {
+    width: 100%;
+    max-width: 768px;
+    @include mix.viewport-height(100);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    & > .content {
+      @include mix.viewport-height(100);
+      background-color: #fffcfb;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 16px;
+      transition: background 0.3s ease-in-out;
+      width: 80%;
+      border: none;
+      font-weight: 600;
+
+      &-primary {
+        background: $primary-color;
+        color: white;
+      }
+
+      &-secondary {
+        background: $color-4;
+        color: $primary-color;
+      }
+
+      i {
+        font-size: 24px;
+        margin-right: 9px;
+      }
+    }
+
+    .logged-container {
+
+      &-dark {
+        height: calc(100vh - 80px); // fallback classico per vecchi browser
+        height: calc(100lvh - 80px); // fallback moderno per browser che supportano Large Viewport Height (Chrome 108+, Safari 15.4+)
+        height: calc(100dvh - 80px); // dvh = dynamic viewport height (preferito sui browser moderni)
+        height: calc(100dvh - 80px - env(safe-area-inset-bottom)); // gestione notch su iPhone
+
+        padding: 0 20px;
+        width: 100%;
+        background: $primary-color;
+        background-image: linear-gradient(to bottom, color.adjust($primary-color, $lightness: -20%), color.adjust($primary-color, $lightness: -10%), $primary-color, $primary-color-light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        color: $color-4;
+        text-align: center;
+        flex: 1;
+
+        .header {
+          color: white;
+          padding: 20px;
+          text-align: center;
+
+          .title {
+            font-size: 27px;
+            font-weight: bold;
+          }
+
+          .subtitle {
+            font-size: 15px;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+
+    h1, h2, h3, h4, h5, h5 {
+      margin: 0;
+    }
+
+    p, label, button, a {
+      margin: 0;
+    }
+
+  }
+}
