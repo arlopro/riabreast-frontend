@@ -54,5 +54,5 @@ Permette alle pazienti di:
 
 1. **Clona il repository**
    ```bash
-   git clone https://github.com/arlopro/riabreast-frontend.git
-   cd riabreast-frontend
+   git clone https://github.com/arlopro/riabreast-backend.git
+   cd riabreast-backend
