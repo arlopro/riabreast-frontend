@@ -49,7 +49,11 @@ const isActive = (path) => route.path === path;
   justify-content: space-around;
   align-items: center;
   padding: 0 12px;
-  padding: 0 12px env(safe-area-inset-bottom) 12px;
+  /* fallback per vecchie iOS */
+  padding-bottom: constant(safe-area-inset-bottom);
+  /* vero padding per PWA/standalone */
+  padding-bottom: env(safe-area-inset-bottom);
+
   background: white;
   box-sizing: border-box;
   height: 80px;
