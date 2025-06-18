@@ -56,7 +56,9 @@ const isActive = (path) => route.path === path;
 
   background: white;
   box-sizing: border-box;
-  height: 80px;
+  /* altezza che include la safe area su iOS */
+  height: calc(80px + constant(safe-area-inset-bottom));
+  height: calc(80px + env(safe-area-inset-bottom));
   border-top: 3px solid $primary-color-light;
 }
 
