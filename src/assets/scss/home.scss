@@ -136,6 +136,14 @@
 
       @include responsive-font(12px);
     }
+
+    .stats-button{
+      margin-top: 12px!important;
+      color: $color-4;
+      text-decoration: underline;
+
+      @include responsive-font(15px);
+    }
   }
 }
 

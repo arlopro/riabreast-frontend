@@ -61,6 +61,7 @@
       ></i>
       <p>{{ todaySessions }}<small>/3</small> Session{{ todaySessions === 1 ? 'e' : 'i' }}</p>
       <label>eseguit{{ todaySessions === 1 ? 'a' : 'e' }} oggi</label>
+      <p class="stats-button">Guarda statistiche</p>
     </div>
   </div>
 </template>
