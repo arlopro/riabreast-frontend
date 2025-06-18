@@ -7,9 +7,10 @@ import RegisterView from '@/views/Auth/RegisterView.vue'
 import RegisterSuccessView from '@/views/Auth/RegisterSuccessView.vue'
 import WelcomeView from '@/views/Auth/WelcomeView.vue'
 import VideoDetailView from '@/views/VideoDetailView.vue'
-import QuestionnaireView  from "@/views/QuestionnaireView.vue";
-import SettingsView from "@/views/SettingsView.vue";
-import PreRegistrationView from "@/views/Auth/PreRegistrationView.vue";
+import QuestionnaireView from '@/views/QuestionnaireView.vue'
+import SettingsView from '@/views/SettingsView.vue'
+import PreRegistrationView from '@/views/Auth/PreRegistrationView.vue'
+import SessionChartView from '@/views/SessionChartView.vue'
 
 const routes = [
   { path: '/', name: 'welcome', component: WelcomeView },
@@ -20,6 +21,7 @@ const routes = [
   { path: '/home', name: 'home', component: HomeView },
   { path: '/extra', name: 'extra', component: ExtraView },
   { path: '/faq', name: 'faq', component: FaqView },
+  { path: '/stats', name: 'stats', component: SessionChartView },
   { path: '/video/:type/:id', name: 'videoDetail', component: VideoDetailView },
   { path: '/questionario', name: 'questionario', component: QuestionnaireView },
   { path: '/settings', name: 'impostazioni', component: SettingsView },
@@ -27,7 +29,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 // Protezione delle pagine che richiedono il login
@@ -44,6 +46,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
 
 export default router

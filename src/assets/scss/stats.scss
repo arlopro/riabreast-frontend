@@ -1,0 +1,16 @@
+@use 'index' as *;
+
+.stats-container {
+  .content {
+    width: 100%;
+    background: white;
+    border-radius: 18px 18px 0 0;
+    padding: 15px;
+
+    @include viewport-height(100);
+
+    canvas {
+      max-width: 100%;
+    }
+  }
+}
