@@ -49,7 +49,7 @@
       <h3>Inizia sessione</h3>
     </div>
 
-    <div class="session-count">
+    <div class="session-count" @click="goToStats">
       <i
         :class="
           todaySessions === 0
@@ -113,13 +113,17 @@ const goToPreviousPeriod = async () => {
   }
 }
 
+const goToStats = () => {
+  router.push('/stats')
+}
+
 onMounted(async () => {
   try {
     fetchHomeData()
 
     // Controlla se ha appena superato un periodo
     if (localStorage.getItem('justAdvanced') === 'true') {
-      if (localStorage.getItem('justFinished') === 'true'){
+      if (localStorage.getItem('justFinished') === 'true') {
         localStorage.removeItem('justFinished')
         showNoMore.value = true
       }
@@ -134,6 +138,4 @@ onMounted(async () => {
 const closePopup = async () => {
   showCongrats.value = false
 }
-
-onMounted(() => {})
 </script>

@@ -1,5 +1,4 @@
-@use "index" as *;
-
+@use 'index' as *;
 
 .popup-congrats {
   position: fixed;
@@ -42,7 +41,6 @@
     }
   }
 }
-
 
 .home-container {
   .title {
@@ -99,7 +97,8 @@
       }
     }
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       transform: scale(0.9);
     }
   }
@@ -113,6 +112,7 @@
 
   .session-count {
     opacity: 0.8;
+    cursor: pointer;
 
     @include responsive-font(14px);
 
